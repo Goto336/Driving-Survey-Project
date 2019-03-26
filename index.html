@@ -1,0 +1,246 @@
+<!DOCTYPE html> <html><head>
+        <title>Driving Survey Project</title>
+        
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Merienda');
+            @import url('https://fonts.googleapis.com/css?family=Playfair+Display+SC');
+            @import url('https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed');
+            @import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great');
+        </style>
+    <style>body {
+    background-image: url("https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: 100%;
+            background-attachment: fixed;
+}
+
+h1{
+    color: #ff3838;
+    text-align: center;
+    padding: 30px;
+    font-size: 60px;
+    font-family: 'Merienda', cursive;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+
+.questions{
+    color: #ff3838;
+    text-align: center;
+    padding: 30px;
+    font-size: 50px;
+    font-family: 'Playfair Display SC', serif;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);    
+}
+
+.answer{
+    color: #ff3838;
+    text-align: center;
+    padding: 30px;
+    font-size: 50px;
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);       
+}
+
+hr{
+    border: solid red 2px;    
+}
+
+.ipt1{
+    width:150px;
+}
+
+.ipt2{
+    width:150px;
+}
+
+#btn1{
+    font-family: 'Playfair Display SC', serif;
+    font-size: 30px;
+    border: groove 4px red;
+    border-radius:10px;    
+}
+
+.btn2{
+    font-family: 'Playfair Display SC', serif;
+    font-size: 30px;
+    border: groove 4px red;
+    border-radius:10px;    
+}
+
+#sur {
+    height: 1570px;
+    width: 850px;
+    margin: 0 auto;
+    background-color: #bdc3c7;
+    opacity: 0.9;
+    border: solid 5px red;
+    text-align: center;
+    border-radius: 10px;
+    border: ridge 6px red;
+    font-family: 'Charmonman', cursive;
+}
+
+.opt{
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 20px;
+    /*color:red;*/
+}
+
+.opt2{
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 20px;
+    /*color:red;*/
+}
+
+.opt3{
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 20px;
+    /*color:red;*/
+}
+
+.opt4{
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 20px;
+    /*color:red;*/
+}
+
+.opt5{
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 20px;
+    /*color:red;*/
+}
+
+
+</style></head>
+    
+    <body>
+        <h1>Driving Survey</h1>
+        
+        <div id="sur">
+            <h1 class="questions">Please answer all questions truthfully</h1>
+            <hr>
+            <h1 class="answer"> Please enter you first and last name</h1>
+            <br>
+            <input class="ipt1" placeholder="Enter first name here">
+            <br>
+            <br>
+            <input class="ipt2" placeholder="Enter last name here">
+            <br>
+            <br>
+            <hr>
+            <h1 class="answer">Please enter your age and date of birth</h1>
+            <br>
+            <input class="ipt3" placeholder="Age" type="number" max="99" min="13">
+            <br>
+            <br>
+              <input class="ipt4" name="bday" min="1920-01-01" max="2019-01-01" type="date">
+            <br>
+            <br>
+            <hr>
+            <form id="eyeForm">
+            <h1 class="answer">Please choose your eye color</h1>
+            <br>
+            <input name="eyes" value="Black" type="radio">Black<br>
+            <input name="eyes" value="Blue" type="radio">Blue<br>
+            <input name="eyes" value="Hazel" type="radio">Hazel
+            <br>
+            </form>
+            <br>
+            <br>
+            <button id="btn1">Submit</button>
+            <button class="btn2">Reset</button>
+            <br>
+            <br>
+            <p class="opt"></p>
+            <p class="opt2"></p>
+            <p class="opt3"></p>
+            <p class="opt4"></p>
+            <p class="opt5"></p>
+        </div>
+        
+    
+
+<script>
+/*__POPCODESTART__*/
+//values
+var first;
+var last;
+var age;
+var birthday;
+var eyecolor;
+
+
+//Object
+var driveSur = {
+    userFirst: "",
+    userLast: "",
+    userAge: "",
+    userBirthday: "",
+    userEyecolor: "",
+    //conditional/If statement
+   calcStuff: function(age) {
+    if(age>=17){
+        alert("Old enough for a license");
+    }
+    else if(age===16){
+        alert("Old enough for a permit, but not full license");
+    }
+   else { 
+       alert("Too young to drive");
+    }
+
+   },  
+   
+printInfo: function(){
+    document.querySelector(".opt").innerHTML = this.userFirst;
+    
+    document.querySelector(".opt2").innerHTML = this.userLast;
+    
+    document.querySelector(".opt3").innerHTML = this.userAge;
+    
+    document.querySelector(".opt4").innerHTML = this.userBirthday;
+    
+    document.querySelector(".opt5").innerHTML = this.userEyecolor;
+}
+
+};
+
+
+document.getElementById('btn1').addEventListener('click', function() {
+    //use it 4 more times *Done*//
+    first = document.querySelector(".ipt1").value;
+    last = document.querySelector(".ipt2").value;
+    age = parseInt(document.querySelector(".ipt3").value);
+    birthday = document.querySelector(".ipt4").value;
+    var formInput = document.getElementById("eyeForm");
+    var eye = formInput.eyes.value; 
+    //parseInt(age);
+    
+    console.log(eye);
+    
+    
+    
+//Reset values
+driveSur.userFirst=first;
+
+driveSur.userLast=last;
+
+driveSur.userAge=age;
+
+driveSur.userBirthday=birthday;
+
+driveSur.userEyecolor=eye;
+    
+    console.log(driveSur.userEyecolor);
+//console.log(driveSur.userFirst); 
+
+//Calling
+driveSur.calcStuff(driveSur.userAge);
+
+driveSur.printInfo();
+});
+
+
+
+</script></body></html>
